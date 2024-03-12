@@ -4,6 +4,10 @@ import os
 ROWS = 10
 COLUMNS = 10
 
+""" Clear Screen """
+def clear():
+    os.system('clear')
+
 """ Create Game Board  10 x 10 """
 def create_gameboard():
     game_board = np.full((ROWS, COLUMNS), '   ')
@@ -11,7 +15,9 @@ def create_gameboard():
 
 """ Print Game Board """
 def print_game_board(game_board):
+    clear()
     print(game_board)
+    
 
 """ Place a Piece """
 def place_piece(game_board, row, column, piece):
