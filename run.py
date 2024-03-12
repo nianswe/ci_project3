@@ -17,6 +17,10 @@ def print_game_board(game_board):
 def place_piece(game_board, row, column, piece):
     game_board[row][column] = piece
 
+""" Check if position/column/row is available """
+def check_valid_position(game_board, row, column):
+    return game_board[row][column] == '   '
+
 """ Main Function """
 def main():
     """ Call Create Game Board Function """
@@ -35,22 +39,31 @@ def main():
         if turn == 0:
             row = int(input(f"Player 1 make your choice row (0 - 9): "))
             column = int(input(f"Player 1 make your choice column (0 - 9): "))
-            """ Place a game piece """
-            place_piece(game_board, row, column, ' O ')
-            turn += 1
-            """ Print Game Board """
-            print_game_board(game_board)
+            if check_valid_position(game_board, row, column):
+                """ Place a game piece """
+                place_piece(game_board, row, column, ' O ')
+                turn += 1
+                """ Print Game Board """
+                print_game_board(game_board)
+            else:
+                print("Position is not available, try again!")
+                continue
+            
 
         else:
         # Player 2 Input    
             row = int(input(f"Player 2 make your choice row (0 - 9): "))
             column = int(input(f"Player 2 make your choice column (0 - 9): "))
-            """ Place a game piece """
-            place_piece(game_board, row, column, ' X ')
-            turn += 1
-            turn = turn % 2
-            """ Print Game Board """
-            print_game_board(game_board)
-
+            if check_valid_position(game_board, row, column):
+                """ Place a game piece """
+                place_piece(game_board, row, column, ' X ')
+                turn += 1
+                turn = turn % 2
+                """ Print Game Board """
+                print_game_board(game_board)
+            else:
+                print("Position is not available, try again!")
+                continue
+                
 """ Run Game """
 main()
