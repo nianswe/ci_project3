@@ -44,7 +44,23 @@ def check_winner(game_board, piece):
     for c in range(COLUMNS-4):
         for r in range(ROWS):
             if game_board[r][c] == piece and game_board[r][c+1] == piece and game_board[r][c+2] == piece and game_board[r][c+3] == piece and game_board[r][c+4] == piece: 
+                return True            
+    """ Check for five vertical winning positions in a row """ 
+    for c in range(COLUMNS):
+        for r in range(ROWS-4):
+            if game_board[r][c] == piece and game_board[r+1][c] == piece and game_board[r+2][c] == piece and game_board[r+3][c] == piece and game_board[r+4][c] == piece:
+                return True
+    """ Check for five diagonal winning positions in a row positive """ 
+    for c in range(COLUMNS-4):
+        for r in range(ROWS-4):
+            if game_board[r][c] == piece and game_board[r+1][c+1] == piece and game_board[r+2][c+2] == piece and game_board[r+3][c+3] == piece and game_board[r+4][c+4] == piece:
                 return True 
+    """ Check for five diagonal winning positions in a row negative """ 
+    for c in range(COLUMNS-4):
+        for r in range(ROWS):
+            if game_board[r][c] == piece and game_board[r-1][c+1] == piece and game_board[r-2][c+2] == piece and game_board[r-3][c+3] == piece and game_board[r-4][c+4] == piece:
+                return True 
+     
 
 """ Main Function """
 def main():
