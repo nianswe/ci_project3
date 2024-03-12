@@ -20,6 +20,46 @@ def print_ascii(fn):
     f= open(fn,'r')
     print(''.join([line for line in f]))
 
+def start():
+    clear()
+    print_ascii('assets/images/gomoku.txt')
+    menu()
+
+def menu():
+    loop = True
+    while loop:
+        #print(menu)
+        print('\n')
+        print('             A.  Play Game\n')
+        print('             B.  Instructions and history\n')
+        print('             C.  Start Page\n')
+        player_action = input("             Please Enter Your Choice:\n")
+
+        if player_action == 'a':
+            home_act1()  # call the respective action function here
+
+        elif player_action == 'b':
+            home_act2()
+
+        elif player_action == 'c':
+            home_act3()
+
+        else:
+            print("             Please type \'A\', \'B\'")
+
+def home_act1():
+    clear()
+    main()
+
+def home_act2():
+    clear()
+    print_ascii('assets/images/description.txt')
+    menu()
+
+def home_act3():
+    clear()
+    print_ascii('assets/images/gomoku.txt')
+    menu()
 
 
 """ Print Game Board """
@@ -27,8 +67,6 @@ def print_game_board(game_board):
     clear()
     print_ascii('assets/images/gomoku.txt')
     
-
-
     """ Add header """
     y = np.array([[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]])
     x = np.array([['','0','1','2','3','4','5','6','7','8','9']])
@@ -172,4 +210,6 @@ def main():
                 continue
 
 """ Run Game """
-main()
+start()
+#menu()
+#main()
