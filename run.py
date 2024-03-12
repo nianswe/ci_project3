@@ -1,4 +1,5 @@
 import numpy as np
+from tabulate import tabulate
 import os
 
 ROWS = 10
@@ -13,10 +14,21 @@ def create_gameboard():
     game_board = np.full((ROWS, COLUMNS), ' ')
     return game_board
 
+""" Print textfile function """
+
+def print_ascii(fn):
+    f= open(fn,'r')
+    print(''.join([line for line in f]))
+
+
+
 """ Print Game Board """
 def print_game_board(game_board):
     clear()
+    print_ascii('assets/images/gomoku.txt')
     
+
+
     """ Add header """
     y = np.array([[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]])
     x = np.array([['','0','1','2','3','4','5','6','7','8','9']])
@@ -27,7 +39,8 @@ def print_game_board(game_board):
     game_board = np.append(x, game_board, axis=0)
 
     """ Flip gamebord vertical (numpy libery) """
-    print(np.flip(game_board, 0))
+    #print(np.flip(game_board, 0))
+    print(tabulate(np.flip(game_board, 0), tablefmt='simple_grid'))
     
 
 """ Place a Piece """
