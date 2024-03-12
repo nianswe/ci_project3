@@ -10,13 +10,24 @@ def clear():
 
 """ Create Game Board  10 x 10 """
 def create_gameboard():
-    game_board = np.full((ROWS, COLUMNS), '   ')
+    game_board = np.full((ROWS, COLUMNS), ' ')
     return game_board
 
 """ Print Game Board """
 def print_game_board(game_board):
     clear()
-    print(game_board)
+    
+    """ Add header """
+    y = np.array([[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]])
+    x = np.array([['','0','1','2','3','4','5','6','7','8','9']])
+    
+    """ Add header column on left """
+    game_board = np.append(y, game_board, axis=1)
+    """ Add header at bottom """
+    game_board = np.append(x, game_board, axis=0)
+
+    """ Flip gamebord vertical (numpy libery) """
+    print(np.flip(game_board, 0))
     
 
 """ Place a Piece """
@@ -25,7 +36,7 @@ def place_piece(game_board, row, column, piece):
 
 """ Check if position/column/row is available """
 def check_valid_position(game_board, row, column):
-    return game_board[row][column] == '   '
+    return game_board[row][column] == ' '
 
 """ Main Function """
 def main():
@@ -67,7 +78,7 @@ def main():
             """ Check if position/column/row is available """
             if check_valid_position(game_board, row, column):
                 """ Place a game piece """
-                place_piece(game_board, row, column, ' O ')
+                place_piece(game_board, row, column, 'O')
                 turn += 1
                 """ Print Game Board """
                 print_game_board(game_board)
@@ -102,7 +113,7 @@ def main():
             """ Check if position/column/row is available """
             if check_valid_position(game_board, row, column):
                 """ Place a game piece """
-                place_piece(game_board, row, column, ' X ')
+                place_piece(game_board, row, column, 'X')
                 turn += 1
                 turn = turn % 2
                 """ Print Game Board """
