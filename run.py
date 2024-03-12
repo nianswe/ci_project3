@@ -10,14 +10,42 @@ def create_gameboard():
     return game_board
 
 """ Print Game Board """
-def print_board(game_board):
+def print_game_board(game_board):
     game_board = create_gameboard()
     print(game_board)
 
+""" Place a Piece """
+def place_piece(game_board, row, column, piece):
+    game_board[row][column] = piece
+
 """ Main Function """
 def main():
+    """ Call Create Game Board Function """
     game_board = create_gameboard()
-    print_board(game_board)
+    """ Call Print Game Board Function """
+    print_game_board(game_board)
+
+    """ Reset GameOver to False """
+    game_over = False
+    """ Reset Player turn to 0 or Player 1 to startt next round """
+    turn = 0
+
+    while not game_over:
+
+        # Player 1 Input
+        if turn == 0:
+            row = int(input(f"Player 1 make your choice row (0 - 9): "))
+            column = int(input(f"Player 1 make your choice column (0 - 9): "))
+            turn += 1
+            print_game_board(game_board)  
+
+        else:
+        # Player 2 Input    
+            row = int(input(f"Player 2 make your choice row (0 - 9): "))
+            column = int(input(f"Player 2 make your choice column (0 - 9): "))
+            turn += 1
+            turn = turn % 2
+            print_game_board(game_board)
 
 """ Run Game """
 main()
