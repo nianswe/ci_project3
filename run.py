@@ -38,6 +38,14 @@ def place_piece(game_board, row, column, piece):
 def check_valid_position(game_board, row, column):
     return game_board[row][column] == ' '
 
+""" Check for winner, if player has 5 pieces in a row """
+def check_winner(game_board, piece):
+    """ Check for five horizontal winning positions in a row """    
+    for c in range(COLUMNS-4):
+        for r in range(ROWS):
+            if game_board[r][c] == piece and game_board[r][c+1] == piece and game_board[r][c+2] == piece and game_board[r][c+3] == piece and game_board[r][c+4] == piece: 
+                return True 
+
 """ Main Function """
 def main():
     """ Call Create Game Board Function """
@@ -79,6 +87,12 @@ def main():
             if check_valid_position(game_board, row, column):
                 """ Place a game piece """
                 place_piece(game_board, row, column, 'O')
+                """ Check for winner Player 1, if 5 pieces are in row """
+                if check_winner(game_board, 'O'):
+                            print_game_board(game_board)
+                            print("PLAYER 1 WINS with 5 in a row!!")
+                            game_over = True
+                            break
                 turn += 1
                 """ Print Game Board """
                 print_game_board(game_board)
@@ -109,9 +123,15 @@ def main():
                 except ValueError:
                     print("Input must be a number between 0 - 9.")
 
-
             """ Check if position/column/row is available """
             if check_valid_position(game_board, row, column):
+                """ Check for winner Player 2, if 5 pieces are in row """
+                if check_winner(game_board, ' X '):
+                            print_board(game_board)
+                            print("PLAYER 2 WINS with 5 in a row!!")
+                            game_over = True
+                            break
+                                
                 """ Place a game piece """
                 place_piece(game_board, row, column, 'X')
                 turn += 1
