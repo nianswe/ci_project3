@@ -1,7 +1,6 @@
 import numpy as np
 from tabulate import tabulate
 import os
-import pyfiglet
 
 ROWS = 10
 COLUMNS = 10
