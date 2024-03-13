@@ -8,8 +8,8 @@ COLUMNS = 10
 """ Clear Screen """
 def clear():
     # Waiting for 4 seconds to clear the screen
-    os.system('clear')
-    
+    os.system('cls' if os.name == 'nt' else 'clear')
+   
 """ Create Game Board  10 x 10 """
 def create_gameboard():
     game_board = np.full((ROWS, COLUMNS), ' ')
