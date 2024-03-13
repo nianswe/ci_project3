@@ -86,7 +86,8 @@ def description():
 def home_act1():
     clear()
     print_ascii('assets/images/gomoku.txt')
-    time.sleep(1)
+    print(' [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
+    time.sleep(2.5)
     clear()
     main()
 
@@ -104,7 +105,6 @@ def home_act3():
 """ Print Game Board """
 def print_game_board(game_board):
     clear()
-    print(' [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
     """ Add header """
     y = np.array([[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]])
     x = np.array([['','0','1','2','3','4','5','6','7','8','9']])
