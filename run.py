@@ -8,7 +8,8 @@ COLUMNS = 10
 
 """ Clear Screen """
 def clear():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    #os.system('cls' if os.name == 'nt' else 'clear')
+    print("\033[2J\033[H", end="", flush=True)
        
 """ Create Game Board  10 x 10 """
 def create_gameboard():
