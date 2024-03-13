@@ -7,8 +7,7 @@ COLUMNS = 10
 
 """ Clear Screen """
 def clear():
-    # Waiting for 4 seconds to clear the screen
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
    
 """ Create Game Board  10 x 10 """
 def create_gameboard():
@@ -22,7 +21,8 @@ def print_ascii(fn):
 
 """ Start function Start Page"""
 def start():
-    clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    #clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
 
@@ -48,7 +48,6 @@ def menu_hidden():
 def menu():
     loop = True
     while loop:
-        #print(menu)
         print('\n')
         print('       A.  Play New Game\n')
         print('       B.  Rules and instructions\n')
@@ -56,7 +55,8 @@ def menu():
         player_action = input('       Please Enter Your Choice:\n')
 
         if player_action == 'a' or player_action == '11':
-            home_act1()  
+            home_act1()
+            continue  
         elif player_action == 'b'or player_action == '22':
             home_act2()
             continue
@@ -64,14 +64,16 @@ def menu():
             home_act3()
             continue
         else:
-            clear()
+            #clear()
+            os.system('cls' if os.name == 'nt' else 'clear')
             print_ascii('assets/images/gomoku.txt')
             print("     Please type \'A\', \'B\'")
             continue
 
 """ Description page """            
 def description():
-    clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    #clear()
     print_ascii('assets/images/gomoku.txt')
     print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
     print_ascii('assets/images/description.txt')
@@ -80,24 +82,27 @@ def description():
     
 """ Menu choice A/11 New Game """
 def home_act1():
-    clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    #clear()
     main()
 
 """ Menu choice B/22 Descrition """
 def home_act2():
-    clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    #clear()
     description()
-    
 
 """ Menu choice C/33 Start Page """
 def home_act3():
-    clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    #clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
 
 """ Print Game Board """
 def print_game_board(game_board):
-    clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    #clear()
     print_ascii('assets/images/gomoku.txt')
     print('     [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
 
