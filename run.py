@@ -1,6 +1,7 @@
 import numpy as np
 from tabulate import tabulate
 import os
+import time
 
 ROWS = 10
 COLUMNS = 10
@@ -8,6 +9,7 @@ COLUMNS = 10
 """ Clear Screen """
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
+    time.sleep(0.5)
    
 """ Create Game Board  10 x 10 """
 def create_gameboard():
@@ -21,8 +23,7 @@ def print_ascii(fn):
 
 """ Start function Start Page"""
 def start():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    #clear()
+    clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
 
@@ -64,16 +65,14 @@ def menu():
             home_act3()
             continue
         else:
-            #clear()
-            os.system('cls' if os.name == 'nt' else 'clear')
+            clear()
             print_ascii('assets/images/gomoku.txt')
             print("     Please type \'A\', \'B\'")
             continue
 
 """ Description page """            
 def description():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    #clear()
+    clear()
     print_ascii('assets/images/gomoku.txt')
     print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
     print_ascii('assets/images/description.txt')
@@ -82,27 +81,23 @@ def description():
     
 """ Menu choice A/11 New Game """
 def home_act1():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    #clear()
+    clear()
     main()
 
 """ Menu choice B/22 Descrition """
 def home_act2():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    #clear()
+    clear()
     description()
 
 """ Menu choice C/33 Start Page """
 def home_act3():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    #clear()
+    clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
 
 """ Print Game Board """
 def print_game_board(game_board):
-    os.system('cls' if os.name == 'nt' else 'clear')
-    #clear()
+    clear()
     print_ascii('assets/images/gomoku.txt')
     print('     [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
 
@@ -225,24 +220,36 @@ def main():
                 try:  
                     """ Input row Player 2 """
                     row = int(input(f"Player 2 make your choice row (0 - 9):"))
-                    if row <= 9:
+                    if row == 11:
+                        home_act1()     
+                    elif row == 22:
+                        home_act2()
+                    elif row == 33:
+                        home_act3()
+                    elif row <= 9:
                         break
                     raise ValueError()
                 except ValueError:
                     print("Input must be a number between 0 - 9.")
-                    print("Input must be a number between 0 - 9.")
+                    
             
             """ Verify input is number 0 - 9 """
             while True:
                 try:
                     """ Input column Player 2 """
                     column = int(input(f"Player 2 make your choice column (0 - 9): "))
-                    if column <= 9:
+                    if row == 11:
+                        home_act1()     
+                    elif row == 22:
+                        home_act2()
+                    elif row == 33:
+                        home_act3()
+                    elif row <= 9:
                         break
                     raise ValueError()
                 except ValueError:
                     print("Input must be a number between 0 - 9.")
-
+                    
             """ Check if position/column/row is available """
             if check_valid_position(game_board, row, column):
                 """ Place a game piece """
