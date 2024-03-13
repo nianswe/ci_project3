@@ -23,7 +23,7 @@ def print_ascii(fn):
 """ Start function Start Page"""
 def start():
     clear()
-    #print_ascii('assets/images/gomoku.txt')
+    print_ascii('assets/images/gomoku.txt')
     menu()
 
 """ Menu hidden"""
@@ -55,21 +55,30 @@ def menu():
 
         if player_action == 'a' or player_action == '11':
             home_act1()
-            continue  
+            clear()
+            continue
+
         elif player_action == 'b'or player_action == '22':
             home_act2()
+            clear()
             continue
         elif player_action == 'c'or player_action == '33':
             home_act3()
+            clear()
             continue
         else:
             clear()
             print_ascii('assets/images/gomoku.txt')
             print("     Please type \'A\', \'B\'")
+            clear()
             continue
 
 """ Description page """            
 def description():
+    clear()
+    print_ascii('assets/images/gomoku.txt')
+    print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
+    time.sleep(1.7)
     clear()
     print_ascii('assets/images/gomoku.txt')
     print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
@@ -98,6 +107,8 @@ def print_game_board(game_board):
     clear()
     print_ascii('assets/images/gomoku.txt')
     print('     [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
+    time.sleep(0.7)
+    clear()
 
     """ Add header """
     y = np.array([[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]])
@@ -110,6 +121,8 @@ def print_game_board(game_board):
 
     """ Flip gamebord vertical (numpy libery) """
     #print(np.flip(game_board, 0))
+    print('')
+    print(' [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
     print(tabulate(np.flip(game_board, 0), tablefmt='simple_grid'))
     
 
