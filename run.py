@@ -24,9 +24,8 @@ def print_ascii(fn):
 """ Start function Start Page"""
 def start():
     clear()
-    print_ascii('assets/images/gomoku.txt')
+    #print_ascii('assets/images/gomoku.txt')
     menu()
-
 
 """ Menu hidden"""
 def menu_hidden():
