@@ -7,66 +7,100 @@ COLUMNS = 10
 
 """ Clear Screen """
 def clear():
+    # Waiting for 4 seconds to clear the screen
     os.system('clear')
-
+    
 """ Create Game Board  10 x 10 """
 def create_gameboard():
     game_board = np.full((ROWS, COLUMNS), ' ')
     return game_board
 
 """ Print textfile function """
-
 def print_ascii(fn):
     f= open(fn,'r')
     print(''.join([line for line in f]))
 
+""" Start function Start Page"""
 def start():
     clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
 
+
+""" Menu hidden"""
+def menu_hidden():
+    loop = True
+    while loop:
+        player_action = input('')
+        if player_action == 'a' or player_action == '11':
+            home_act1()  
+        elif player_action == 'b'or player_action == '22':
+            home_act2()
+            continue
+        elif player_action == 'c'or player_action == '33':
+            home_act3()
+            continue
+        else:
+            print("     Please type \'A\', \'B\'")
+            continue
+
+""" Menu """
 def menu():
     loop = True
     while loop:
         #print(menu)
         print('\n')
-        print('             A.  Play Game\n')
-        print('             B.  Instructions and history\n')
-        print('             C.  Start Page\n')
-        player_action = input("             Please Enter Your Choice:\n")
+        print('       A.  Play New Game\n')
+        print('       B.  Rules and instructions\n')
+        print('       C.  Start Page\n')
+        player_action = input('       Please Enter Your Choice:\n')
 
-        if player_action == 'a':
-            home_act1()  # call the respective action function here
-
-        elif player_action == 'b':
+        if player_action == 'a' or player_action == '11':
+            home_act1()  
+        elif player_action == 'b'or player_action == '22':
             home_act2()
-
-        elif player_action == 'c':
+            continue
+        elif player_action == 'c'or player_action == '33':
             home_act3()
-
+            continue
         else:
-            print("             Please type \'A\', \'B\'")
+            clear()
+            print_ascii('assets/images/gomoku.txt')
+            print("     Please type \'A\', \'B\'")
+            continue
 
+""" Description page """            
+def description():
+    clear()
+    print_ascii('assets/images/gomoku.txt')
+    print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
+    print_ascii('assets/images/description.txt')
+    print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
+    menu_hidden()
+    
+""" Menu choice A/11 New Game """
 def home_act1():
     clear()
     main()
 
+""" Menu choice B/22 Descrition """
 def home_act2():
     clear()
-    print_ascii('assets/images/description.txt')
-    menu()
+    description()
+    
 
+""" Menu choice C/33 Start Page """
 def home_act3():
     clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
 
-
 """ Print Game Board """
 def print_game_board(game_board):
     clear()
     print_ascii('assets/images/gomoku.txt')
-    
+    print('     [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
+
     """ Add header """
     y = np.array([[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]])
     x = np.array([['','0','1','2','3','4','5','6','7','8','9']])
@@ -132,8 +166,15 @@ def main():
             while True:
                 try: 
                     """ Input row Player 1 """
-                    row = int(input(f"Player 1 make your choice row (0 - 9): "))
-                    if row <= 9:
+                    row = int(input(f"Player 1 make your choice row (0 - 9):"))
+                    """ Numeric menu 11, 22, 33 isted of A, B, C """
+                    if row == 11:
+                        home_act1()     
+                    elif row == 22:
+                        home_act2()
+                    elif row == 33:
+                        home_act3()
+                    elif row <= 9:
                         break
                     raise ValueError()
                 except ValueError:
@@ -143,8 +184,14 @@ def main():
             while True:
                 try:        
                     """ Input column Player 1 """
-                    column = int(input(f"Player 1 make your choice column (0 - 9): "))
-                    if column <= 9:
+                    column = int(input(f"Player 1 make your choice column (0 - 9):"))
+                    if row == 11:
+                        home_act1()     
+                    elif row == 22:
+                        home_act2()
+                    elif row == 33:
+                        home_act3()
+                    elif column <= 9:
                         break
                     raise ValueError()
                 except ValueError:
@@ -172,11 +219,12 @@ def main():
             while True:
                 try:  
                     """ Input row Player 2 """
-                    row = int(input(f"Player 2 make your choice row (0 - 9): "))
+                    row = int(input(f"Player 2 make your choice row (0 - 9):"))
                     if row <= 9:
                         break
                     raise ValueError()
                 except ValueError:
+                    print("Input must be a number between 0 - 9.")
                     print("Input must be a number between 0 - 9.")
             
             """ Verify input is number 0 - 9 """
@@ -192,15 +240,15 @@ def main():
 
             """ Check if position/column/row is available """
             if check_valid_position(game_board, row, column):
+                """ Place a game piece """
+                place_piece(game_board, row, column, 'X')
                 """ Check for winner Player 2, if 5 pieces are in row """
-                if check_winner(game_board, ' X '):
-                            print_board(game_board)
+                if check_winner(game_board, 'X'):
+                            print_game_board(game_board)
                             print("PLAYER 2 WINS with 5 in a row!!")
                             game_over = True
                             break
-                                
-                """ Place a game piece """
-                place_piece(game_board, row, column, 'X')
+                 
                 turn += 1
                 turn = turn % 2
                 """ Print Game Board """
@@ -211,5 +259,3 @@ def main():
 
 """ Run Game """
 start()
-#menu()
-#main()
