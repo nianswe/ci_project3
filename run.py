@@ -32,7 +32,8 @@ def menu_hidden():
     while loop:
         player_action = input('')
         if player_action == 'a' or player_action == '11':
-            home_act1()  
+            home_act1()
+            continue  
         elif player_action == 'b'or player_action == '22':
             home_act2()
             continue
@@ -55,22 +56,17 @@ def menu():
 
         if player_action == 'a' or player_action == '11':
             home_act1()
-            clear()
             continue
 
         elif player_action == 'b'or player_action == '22':
             home_act2()
-            clear()
             continue
         elif player_action == 'c'or player_action == '33':
             home_act3()
-            clear()
             continue
         else:
-            clear()
             print_ascii('assets/images/gomoku.txt')
             print("     Please type \'A\', \'B\'")
-            clear()
             continue
 
 """ Description page """            
@@ -105,6 +101,7 @@ def home_act3():
 """ Print Game Board """
 def print_game_board(game_board):
     clear()
+    print_ascii('assets/images/gomoku.txt')
     print(' [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
     """ Add header """
     y = np.array([[0],[1],[2],[3],[4],[5],[6],[7],[8],[9]])
@@ -161,7 +158,7 @@ def main():
 
     """ Reset GameOver to False """
     game_over = False
-    """ Reset Player turn to 0 or Player 1 to startt next round """
+    """ Reset Player turn to 0 or Player 1 to start next round """
     turn = 0
 
     while not game_over:
@@ -266,7 +263,6 @@ def main():
                             print("PLAYER 2 WINS with 5 in a row!!")
                             game_over = True
                             break
-                 
                 turn += 1
                 turn = turn % 2
                 """ Print Game Board """
