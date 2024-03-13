@@ -26,6 +26,10 @@ def start():
     print_ascii('assets/images/gomoku.txt')
     menu()
 
+def logo():
+    print_ascii('assets/images/gomoku.txt')
+    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
+
 """ Menu hidden"""
 def menu_hidden():
     loop = True
@@ -85,9 +89,8 @@ def description():
 """ Menu choice A/11 New Game """
 def home_act1():
     clear()
-    print_ascii('assets/images/gomoku.txt')
-    print(' [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]    \n')
-    time.sleep(2.5)
+    logo()
+    time.sleep(2)
     clear()
     main()
 
