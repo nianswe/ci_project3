@@ -1,6 +1,7 @@
 import numpy as np
 from tabulate import tabulate
 import os
+import pyfiglet
 
 ROWS = 10
 COLUMNS = 10
@@ -8,7 +9,7 @@ COLUMNS = 10
 """ Clear Screen """
 def clear():
     # Waiting for 4 seconds to clear the screen
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name=='nt' else 'clear')
    
 """ Create Game Board  10 x 10 """
 def create_gameboard():
