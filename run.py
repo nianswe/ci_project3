@@ -8,8 +8,8 @@ COLUMNS = 10
 
 """ Clear Screen """
 def clear():
+    print('\n' * 100)
     os.system('cls' if os.name == 'nt' else 'clear')
-    print('\n' * os.get_terminal_size().lines)
        
 """ Create Game Board  10 x 10 """
 def create_gameboard():
