@@ -1,10 +1,15 @@
 <body>
-    <button onclick="window.location.reload()">Run Program</button>
-    <div id="terminal"></div>
+    <h1 id="title">Gomoku Game App</h1>
+    <div id="button-wrapper">
+        <button onclick="window.location.reload()">Run Program</button>
+    </div>
+    <div id="terminal-wrapper">
+        <div id="terminal"></div>
+    </div>
 
     <script>
         var term = new Terminal({
-            cols: 100,
+            cols: 110,
             rows: 30
         });
         term.open(document.getElementById('terminal'));
