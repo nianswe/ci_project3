@@ -43,8 +43,8 @@ def print_ascii(fn):
 def start():
     clear()
     print_ascii('assets/images/gomoku.txt')
-    time.sleep(2)
-    clear()
+   # time.sleep(2)
+   # clear()
     print_ascii('assets/images/start.txt')
     time.sleep(2)
     clear()
@@ -128,11 +128,11 @@ def menu():
 def description():
     clear()
     print_ascii('assets/images/gomoku.txt')
-    time.sleep(0.7)
+    #time.sleep(0.7)
     print_ascii('assets/images/description.txt')
     print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
     menu_hidden()
-    clear()
+    #clear()
 
 #############################
 # Menu functions
@@ -145,10 +145,10 @@ def description():
 def home_act1():
     clear()
     logo()
-    time.sleep(2)
-    clear()
+    # time.sleep(2)
+    # clear()
     main()
-    clear()
+    # clear()
 
 
 """ Menu choice B/22 Descrition """
@@ -157,7 +157,7 @@ def home_act1():
 def home_act2():
     clear()
     description()
-    clear()
+    # clear()
 
 
 """ Menu choice C/33 Start Page """
@@ -167,7 +167,7 @@ def home_act3():
     clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
-    clear()
+    # clear()
 
 
 #############################
