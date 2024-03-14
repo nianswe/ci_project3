@@ -29,6 +29,7 @@ def start():
 
 """ Print Logo"""
 def logo():
+    clear()
     print_ascii('assets/images/gomoku.txt')
     print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
  
@@ -185,6 +186,7 @@ def main():
     """ Call Create Game Board Function """
     game_board = create_gameboard()
     """ Call Print Game Board Function """
+    clear()
     print_game_board(game_board)
 
     """ Reset GameOver to False """
