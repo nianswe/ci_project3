@@ -286,6 +286,8 @@ def main():
                         break
                     raise ValueError()
                 except ValueError:
+                    clear()
+                    print_game_board(game_board)
                     print("Input must be a number between 0 - 9.")
 
             """ Verify input is number 0 - 9 """
@@ -304,6 +306,8 @@ def main():
                         break
                     raise ValueError()
                 except ValueError:
+                    clear()
+                    print_game_board(game_board)
                     print("Input must be a number between 0 - 9.")
 
             """ Check if position/column/row is available """
@@ -312,6 +316,7 @@ def main():
                 place_piece(game_board, row, column, 'O')
                 """ Check for winner Player 1, if 5 pieces are in row """
                 if check_winner(game_board, 'O'):
+                    clear()
                     print_game_board(game_board)
                     print("PLAYER 1 WINS with 5 in a row!!")
                     game_over = True
@@ -340,6 +345,8 @@ def main():
                         break
                     raise ValueError()
                 except ValueError:
+                    clear()
+                    print_game_board(game_board)
                     print("Input must be a number between 0 - 9.")
 
             """ Verify input is number 0 - 9 """
@@ -358,6 +365,8 @@ def main():
                         break
                     raise ValueError()
                 except ValueError:
+                    clear()
+                    print_game_board(game_board)
                     print("Input must be a number between 0 - 9.")
 
             """ Check if position/column/row is available """
@@ -366,6 +375,7 @@ def main():
                 place_piece(game_board, row, column, 'X')
                 """ Check for winner Player 2, if 5 pieces are in row """
                 if check_winner(game_board, 'X'):
+                    clear()
                     print_game_board(game_board)
                     print("PLAYER 2 WINS with 5 in a row!!")
                     game_over = True
