@@ -15,7 +15,10 @@ def clear():
     sys.stdout.flush()
 
 
-""" Create Game Board  10 x 10 """
+""" Create Game Board  10 x 10 
+    Used libary Numpy to build game bord grid
+
+"""
 
 
 def create_gameboard():
@@ -23,13 +26,15 @@ def create_gameboard():
     return game_board
 
 
-""" Print textfile function """
+"""  Print textfile function
+     To print textfile or ascii graphic from textfile
+"""
 
 
 def print_ascii(fn):
     f = open(fn, 'r')
     print(''.join([line for line in f]))
-    
+
 
 """ Start function Start Page"""
 
@@ -130,7 +135,7 @@ def description():
     clear()
 
 #############################
-# MENU functions
+# Menu functions
 #############################
 
 
@@ -259,9 +264,9 @@ def main():
     clear()
     print_game_board(game_board)
 
-    """ Reset GameOver to False """
+    """ Reset Game Over to False """
     game_over = False
-    """ Reset Player turn to 0 or Player 1 to start next round """
+    """ Reset Player turn to 0 for Player 1 to start next round """
     turn = 0
 
 #############################
@@ -320,7 +325,7 @@ def main():
                     print_game_board(game_board)
                     print("PLAYER 1 WINS with 5 in a row!!")
                     game_over = True
-                    break
+                    menu()
                 turn += 1
                 """ Print Game Board """
                 clear()
@@ -379,7 +384,7 @@ def main():
                     print_game_board(game_board)
                     print("PLAYER 2 WINS with 5 in a row!!")
                     game_over = True
-                    break
+                    menu()
                 turn += 1
                 turn = turn % 2
                 """ Print Game Board """
