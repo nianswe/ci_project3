@@ -318,6 +318,7 @@ def main():
                     break
                 turn += 1
                 """ Print Game Board """
+                clear()
                 print_game_board(game_board)
             else:
                 print("Position is not available, try again!")
@@ -372,6 +373,7 @@ def main():
                 turn += 1
                 turn = turn % 2
                 """ Print Game Board """
+                clear()
                 print_game_board(game_board)
             else:
                 print("Position is not available, try again!")
