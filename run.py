@@ -25,11 +25,16 @@ def start():
     clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
+    clear()
 
+""" Print Logo"""
 def logo():
     print_ascii('assets/images/gomoku.txt')
     print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
-
+ 
+#############################
+#   Hidden Menu logic
+# ########################### 
 """ Menu hidden"""
 def menu_hidden():
     loop = True
@@ -48,6 +53,9 @@ def menu_hidden():
             print("     Please type \'A\', \'B\'")
             continue
 
+#############################
+#   Menu logic
+# ########################### 
 """ Menu """
 def menu():
     loop = True
@@ -73,19 +81,26 @@ def menu():
             print("     Please type \'A\', \'B\'")
             continue
 
-""" Description page """            
+#############################
+#   Description page
+# ###########################         
+""" Description page """
 def description():
     clear()
     print_ascii('assets/images/gomoku.txt')
     print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
     time.sleep(0.7)
     clear()
-    print_ascii('assets/images/gomoku.txt')
+    #print_ascii('assets/images/gomoku.txt')
     print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
     print_ascii('assets/images/description.txt')
     print('      [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]    \n')
     menu_hidden()
-    
+    clear()
+
+#############################
+# MENU functions
+#############################
 """ Menu choice A/11 New Game """
 def home_act1():
     clear()
@@ -93,18 +108,25 @@ def home_act1():
     time.sleep(2)
     clear()
     main()
+    clear()
 
 """ Menu choice B/22 Descrition """
 def home_act2():
     clear()
     description()
+    clear()
 
 """ Menu choice C/33 Start Page """
 def home_act3():
     clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
+    clear()
 
+
+#############################
+# Print Game Board
+#############################
 """ Print Game Board """
 def print_game_board(game_board):
     clear()
@@ -121,7 +143,9 @@ def print_game_board(game_board):
     #print(np.flip(game_board, 0))
     print(tabulate(np.flip(game_board, 0), tablefmt='simple_grid'))
     
-
+#############################
+# Game Functions
+#############################
 """ Place a Piece """
 def place_piece(game_board, row, column, piece):
     game_board[row][column] = piece
@@ -153,7 +177,9 @@ def check_winner(game_board, piece):
             if game_board[r][c] == piece and game_board[r-1][c+1] == piece and game_board[r-2][c+2] == piece and game_board[r-3][c+3] == piece and game_board[r-4][c+4] == piece:
                 return True 
      
-
+#############################
+#  Main
+#############################
 """ Main Function """
 def main():
     """ Call Create Game Board Function """
@@ -166,6 +192,9 @@ def main():
     """ Reset Player turn to 0 or Player 1 to start next round """
     turn = 0
 
+#############################
+# Player Input
+############################## 
     while not game_over:
         if turn == 0:
         # Player 1 Input
