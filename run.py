@@ -11,8 +11,9 @@ COLUMNS = 10
 
 
 def clear():
+    sys.stderr.write("\x1b[2J\x1b[H")
     os.system('cls' if os.name == 'nt' else 'clear')
-    sys.stdout.flush()
+   
 
 
 """ Create Game Board  10 x 10 
@@ -49,8 +50,7 @@ def start():
     clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
-    clear()
-
+    
 
 """ Print Logo"""
 
@@ -177,7 +177,7 @@ def home_act3():
 
 
 def print_game_board(game_board):
-    clear()
+    # clear()
     """ Add header """
     y = np.array([[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]])
     x = np.array([['', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']])
