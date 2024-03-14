@@ -10,11 +10,8 @@
 
   - For the game to be serious, an equalization of the advantages for black
     (who starts the game) is required, and this equalization is done only by
-    means of an opening rule.
-  
-  - A breakthrough in equalizing the advantages for black has come when the
-    rules incorporate the possibility for a player to change sides (swap)
-    from white to black or vice versa.
+    means of an opening rule, by equalizing the advantages for black by the 
+    possibility for a player to change sides (swap) from white to black or vice versa.
   
   - Swap: The starting player puts out the first three moves, i.e. 2 moves
     for black and 1 move for white anywhere on the board (game board).

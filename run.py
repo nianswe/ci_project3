@@ -30,14 +30,16 @@ def print_ascii(fn):
     f = open(fn, 'r')
     print(''.join([line for line in f]))
     
-    
+
 """ Start function Start Page"""
 
 
 def start():
     clear()
+    print_ascii('assets/images/gomoku.txt')
+    time.sleep(2)
     print_ascii('assets/images/start.txt')
-    time.sleep(1)
+    time.sleep(2)
     clear()
     print_ascii('assets/images/gomoku.txt')
     menu()
@@ -120,10 +122,7 @@ def menu():
 def description():
     clear()
     print_ascii('assets/images/gomoku.txt')
-    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
     time.sleep(0.7)
-    clear()
-    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
     print_ascii('assets/images/description.txt')
     print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
     menu_hidden()
