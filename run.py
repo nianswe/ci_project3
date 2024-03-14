@@ -38,6 +38,7 @@ def start():
     clear()
     print_ascii('assets/images/gomoku.txt')
     time.sleep(2)
+    clear()
     print_ascii('assets/images/start.txt')
     time.sleep(2)
     clear()
