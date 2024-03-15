@@ -143,12 +143,12 @@ def home_act1():
     clear()
 
 
-""" Menu choice B/22 Descrition """
+""" Menu choice B/22 Instruction """
 
 
 def home_act2():
     clear()
-    description()
+    instruction()
     clear()
 
 
@@ -403,18 +403,18 @@ def main():
 
 
 #############################
-#   Description page
+#   Instruction page
 # ###########################
 
 
-""" Description page """
+""" Instruction page """
 
 
-def description():
+def instruction():
     clear()
     print_ascii('assets/images/gomoku.txt')
     print('\n')
-    print_ascii('assets/images/description.txt')
+    print_ascii('assets/images/instructions.txt')
     menu_hidden()
 
 
