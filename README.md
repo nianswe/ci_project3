@@ -1,32 +1,105 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to Gomocu
 
-Welcome,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+![Landing Page Screenshot](media/start.png)
 
-## Reminders
+The deployed web app can be accessed [here](https://gomokunianswe-3b8eed28aaa7.herokuapp.com/).
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+## User Experience (UX)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+*   ### Project Goals
+    -   <b>Board Game:</b> The goal has been to create a game, easy to understand and a challenge for all ages, it is a game for two players to compete to get 5 pieces in a row, horizontally, vertically or diagonally.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+*   ### Target Audience
+    -   <b>People in all ages.</b>
+<br>
+*   ### Flow Charts
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+    -   The Flowchart was created using DrawIo free online app <b>[app.diagrams.net](https://app.diagrams.net/)</b> it follows the steps from start, menu and validation of input data.
+    
+    <img src="media/flowshart.png" width="25%">
+         
+<br>
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+*   ### Design
+    <br>
+- <b>Welcome screen:</b> View at start in 2 seconds.<br><br>
+    <img src="media/welcome.png" width="25%"><br><br>
+- <b>Start menu screen:</b> Logo and menu with A . Play New Game and B. Rules and instructions. Input your choice.<br><br>
+    <img src="media/start.png" width="25%"><br><br>
+- <b>Game Board:</b> Logo and Game Board, Player starts and input row position and column position, Piece will be places on the board O for Player 1 and X for Player 2.<br><br>
+    <img src="media/gameboard.png" width="25%"><br><br>
+- <b>Instructions:</b> Rules and instructions of the game.<br><br>
+    <img src="media/instructions.png" width="25%"><br><br> 
+- <b>Winner Banner:</b> Information about winning player.<br><br>
+    <img src="media/winner.png" width="25%"><br><br>     
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## Features
+*   ### Existing Features
+    -   <b>Menu:</b> User input to choose Play New Game or Instructions
+    -   <b>Description:</b> Game instructions
+    -   <b>Game board:</b> Grid 10 x 10 with header on left and at bottom marcin rows and columns 0 - 9.
+    -   <b>Place a Piece:</b> Place the players mark O or X on the game board at choosen position.
+    -   <b>Check if position/column/row is available:</b> Check if position ia available on the game board, or replay with information of position already is taken.
+    -   <b>Check for winner:</b> 
+        - Horizontal check for 5 pices in a row for a player.
+        - Vertical check for 5 pices in a row for a player.
+        - Diagonal in check in both directions for 5 pices in a row for a player.
+    -   <b>Winner Banner:</b> Full Screen Banner with information of Winning Player.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
----
+*   ### Future Features<br>
+    -   <b>Board with bigger grid.</b>
+    -   <b>User redistration.</b>
+    -   <b>High score board with results.</b>
 
-Happy coding!
+*   ### Remaining Bugs 
+    -   <b>No known bugs</b> 
+
+## Project Structure
+
+*   ### Main Scope
+    -   <b>run.py:</b> This is the main entry point of the application. 
+    -   <b>assets\images:</b>: text iles with instructions and ascii art.
+
+## Libraries 
+- <b>Numpy:</b> Used to make it easier to create game board grid, and to append header column and row with information of column and row number to make the user experiance better.
+- <b>Tabular:</b> Used to print game board grid.
+- <b>Time:</b> Used to sleep to pause printed images before clear and print new image.
+- <b>OS:</b> Used for clear / cls to clear terminal screen.
+
+## Validator Testing
+- PEP8:
+    - No errors were returned from https://pep8ci.herokuapp.com/
+    - Manual testing all menu choice.
+    - Manual testing multiple random 5 in a row combinations horizontal, verical and diagonal.
+    
+## Deployment
+This project is deployed using Code Institute's mock terminal for Heroku.
+Terminal size is changed from original 80 columns x 24 rows  to 80 columns x 40 rows for gameboard and instruction page to fit.
+
+Steps for Deployment:
+1. Fork or Clone [GitHub Repository](https://github.com/nianswe/ci_project3.git)
+2. Create a new Heroku app
+3. Set the build packs to Python and node.js (in that order)
+4. Add Config Variables 'PORT'
+5. Link the Heroku app to the repository
+6. Click Deploy
+
+
+## Credits
+- How to print a grid: https://pypi.org/project/tabulate/
+
+- Insperation how to print a game board grid and check if player has 5 i a row:
+        https://www.youtube.com/@KeithGalli
+        https://www.youtube.com/watch?v=UYgyRArKDEs
+
+- How to add row and column for header to nampy array
+        https://stackoverflow.com/questions/11106536/adding-row-column-headers-to-numpy-arrays
+
+- How to print textfile and ascii art to terminal: https://learnlearn.uk/python/ascii-art/
+
+- How to create a menu with choices trigger functions: https://stackoverflow.com/questions/49226804/python-input-menu-function
+

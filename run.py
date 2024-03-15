@@ -1,37 +1,39 @@
 import numpy as np
 from tabulate import tabulate
 import os
-import sys
 import time
 
 ROWS = 10
 COLUMNS = 10
 
-""" Clear Screen """
-
 
 def clear():
+    """
+    Clear Screen
+    credit: https://www.altcademy.com/blog/how-to-clear-screen-in-python/
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
-   
-
-
-""" Create Game Board  10 x 10 
-    Used libary Numpy to build game bord grid
-
-"""
 
 
 def create_gameboard():
+    """
+    Create Game Board  10 x 10
+    Used libary Numpy to build game bord grid
+    credit: https://www.youtube.com/watch?v=UYgyRArKDEs
+            https://www.youtube.com/@KeithGalli
+
+    """
     game_board = np.full((ROWS, COLUMNS), ' ')
     return game_board
 
 
-"""  Print textfile function
-     To print textfile or ascii graphic from textfile
-"""
-
-
 def print_ascii(fn):
+    """
+    Print textfile, ascii art function
+    To print textfile or ascii graphic from textfile
+     print_ascii('assets/images/textfile.txt')
+    credit: https://learnlearn.uk/python/ascii-art/
+    """
     f = open(fn, 'r')
     print(''.join([line for line in f]))
 
@@ -39,42 +41,43 @@ def print_ascii(fn):
 #   Start
 #############################
 
-""" Start function Start Page"""
-
 
 def start():
+    """
+    Start function Start Page,
+    Print, Logo,
+    Print sample gameplan at start, clear screen
+    and print logo and game board.
+    """
     clear()
     print_ascii('assets/images/gomoku.txt')
-    # time.sleep(2)
-    # clear()
     print_ascii('assets/images/start.txt')
     time.sleep(2)
     clear()
-    # print_ascii('assets/images/gomoku.txt')
-    # print('\n')
     menu()
-    
-
-""" Print Logo"""
 
 
 def logo():
+    """ Print Logo and small horizontal menu  """
     clear()
     print_ascii('assets/images/gomoku.txt')
     print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
 
 
-
-
 #############################
-#   Menu 
+#   Menu
 # ###########################
 
 
-""" Menu """
-
-
 def menu():
+    """
+    Print Menu,
+    Play New Game, Rules and instructions,
+    with input A or B, C is available in the logic to
+    use C or 33 to get to Start page
+    credit: https://stackoverflow.com/questions
+    /49226804/python-input-menu-function
+    """
     loop = True
     while loop:
         clear()
@@ -82,7 +85,8 @@ def menu():
         print('\n')
         print('                         A.  Play New Game\n')
         print('                         B.  Rules and instructions\n')
-        player_action = input('                         Please Enter Your Choice:\n')
+        player_action = input('                \
+        Please Enter Your Choice:\n')
 
         if player_action == 'a' or player_action == '11':
             home_act1()
@@ -99,16 +103,13 @@ def menu():
             print("     Please type \'A\', \'B\'")
             continue
 
-
 #############################
 #   Hidden Menu logic
 #############################
 
 
-""" Menu hidden"""
-
-
 def menu_hidden():
+    """ Menu hidden, Logic for sm all horizontal menu """
     loop = True
     while loop:
         player_action = input('')
@@ -131,10 +132,8 @@ def menu_hidden():
 #############################
 
 
-""" Menu choice A/11 New Game """
-
-
 def home_act1():
+    """ Menu choice A/11 New Game """
     clear()
     # logo()
     # time.sleep(2)
@@ -143,19 +142,15 @@ def home_act1():
     clear()
 
 
-""" Menu choice B/22 Instruction """
-
-
 def home_act2():
+    """ Menu choice B/22 Instruction  """
     clear()
     instruction()
     clear()
 
 
-""" Menu choice C/33 Start Page """
-
-
 def home_act3():
+    """ Menu choice C/33 Start Page """
     clear()
     # print_ascii('assets/images/gomoku.txt')
     # print('\n')
@@ -166,13 +161,13 @@ def home_act3():
 #############################
 # Print Game Board
 #############################
-""" Print Game Board """
-
 
 def print_game_board(game_board):
+    """ Print Game Board """
     clear()
     print_ascii('assets/images/gomoku.txt')
-    print('      [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]\n')
+    print('    [ 11.  Play New Game ]\
+    [ 22.  Instructions ]    [ 33.  Start Page ]\n')
     """ Add header """
     y = np.array([[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]])
     x = np.array([['', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']])
@@ -185,28 +180,37 @@ def print_game_board(game_board):
     print(tabulate(np.flip(game_board, 0), tablefmt='simple_grid'))
 
 #############################
-# Game Functions
+# Game functions
 #############################
 
 
-""" Place a Piece """
+""" Game Functions
+
+    Credit: https://www.youtube.com/@KeithGalli
+            https://www.youtube.com/watch?v=UYgyRArKDEs
+    - Place a piece
+    - Check if position is available
+    - Check for winner 5 in a row positions
+"""
 
 
 def place_piece(game_board, row, column, piece):
+    """
+    Place a Piece,
+    Puts players piece O for Player 1
+    or X for Player 2 on the board
+    """
     game_board[row][column] = piece
 
 
-""" Check if position/column/row is available """
-
-
 def check_valid_position(game_board, row, column):
+    """ Check if position/column/row is available """
     return game_board[row][column] == ' '
 
 
-""" Check for winner, if player has 5 pieces in a row """
-
-
 def check_winner(game_board, piece):
+    """ Check for winner, if player has 5 pieces in a row """
+
     """ Check for five horizontal winning positions in a row """
     for c in range(COLUMNS - 4):
         for r in range(ROWS):
@@ -249,14 +253,12 @@ def check_winner(game_board, piece):
 #############################
 
 
-""" Main Function """
-
-
 def main():
+    """ Main Function,  Starts the game for Player 1 """
+
     """ Call Create Game Board Function """
     game_board = create_gameboard()
     """ Call Print Game Board Function """
-    #clear()
     logo()
     print('\n')
     print_game_board(game_board)
@@ -269,6 +271,8 @@ def main():
 #############################
 # Player Input
 #############################
+
+    """ Player input row and column """
     while not game_over:
         if turn == 0:
             """ Player 1 Input """
@@ -322,7 +326,8 @@ def main():
                     print_game_board(game_board)
                     print("PLAYER 1 WINS with 5 in a row!!")
                     print('\n')
-                    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
+                    print(' [ A.  Play New Game ] \
+                    [ B.  Instructions ]  [ C.  Start Page ]')
                     time.sleep(2)
                     clear()
                     print_ascii('assets/images/winner1.txt')
@@ -386,7 +391,8 @@ def main():
                     print_game_board(game_board)
                     print("PLAYER 2 WINS with 5 in a row!!")
                     print('\n')
-                    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
+                    print(' [ A.  Play New Game ] \
+                    [ B.  Instructions ]  [ C.  Start Page ]')
                     time.sleep(2)
                     clear()
                     print_ascii('assets/images/winner2.txt')
@@ -404,13 +410,11 @@ def main():
 
 #############################
 #   Instruction page
-# ###########################
-
-
-""" Instruction page """
+############################
 
 
 def instruction():
+    """ Instruction page """
     clear()
     print_ascii('assets/images/gomoku.txt')
     print('\n')

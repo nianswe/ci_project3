@@ -3,7 +3,7 @@
  ------------------------------------------------------------------------------
   
  -  The rules of the game must be the same for both black and white (noughts
-    and crosses).
+    and crosses, or O and X).
 
  -  However, winning requires exactly 5 in a row. 6 in a row is therefore not
     a win for either player, but it is not forbidden to put 6 in a row.
