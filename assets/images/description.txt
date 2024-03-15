@@ -20,4 +20,6 @@
     black or as white.
   
   - The player proposing an opening then dares not choose an opening that
-    is too strong for either black or white.                                         
+    is too strong for either black or white.   
+
+    [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]                                      
