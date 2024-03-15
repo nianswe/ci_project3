@@ -128,8 +128,10 @@ def menu():
 def description():
     clear()
     print_ascii('assets/images/gomoku.txt')
+    print('\n')
     #time.sleep(0.7)
     print_ascii('assets/images/description.txt')
+    print('\n')
     print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
     menu_hidden()
     #clear()
@@ -144,7 +146,7 @@ def description():
 
 def home_act1():
     clear()
-    logo()
+    # logo()
     # time.sleep(2)
     # clear()
     main()
@@ -261,7 +263,9 @@ def main():
     """ Call Create Game Board Function """
     game_board = create_gameboard()
     """ Call Print Game Board Function """
-    clear()
+    #clear()
+    logo()
+    print('\n')
     print_game_board(game_board)
 
     """ Reset Game Over to False """
