@@ -11,7 +11,6 @@ COLUMNS = 10
 
 
 def clear():
-    sys.stderr.write("\x1b[2J\x1b[H")
     os.system('cls' if os.name == 'nt' else 'clear')
    
 
@@ -36,19 +35,23 @@ def print_ascii(fn):
     f = open(fn, 'r')
     print(''.join([line for line in f]))
 
+#############################
+#   Start
+#############################
 
 """ Start function Start Page"""
 
 
 def start():
     clear()
-    print_ascii('assets/images/gomoku.txt')
+    # print_ascii('assets/images/gomoku.txt')
    # time.sleep(2)
    # clear()
-    print_ascii('assets/images/start.txt')
-    time.sleep(2)
-    clear()
+    # print_ascii('assets/images/start.txt')
+    # time.sleep(2)
+    # clear()
     print_ascii('assets/images/gomoku.txt')
+    print('\n')
     menu()
     
 
@@ -59,6 +62,39 @@ def logo():
     clear()
     print_ascii('assets/images/gomoku.txt')
     print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
+
+
+
+
+#############################
+#   Menu 
+# ###########################
+
+
+""" Menu """
+
+
+def menu():
+    loop = True
+    while loop:
+        print('                         A.  Play New Game\n')
+        print('                         B.  Rules and instructions\n')
+        player_action = input('                         Please Enter Your Choice:\n')
+
+        if player_action == 'a' or player_action == '11':
+            home_act1()
+            continue
+
+        elif player_action == 'b' or player_action == '22':
+            home_act2()
+            continue
+        elif player_action == 'c' or player_action == '33':
+            home_act3()
+            continue
+        else:
+            print_ascii('assets/images/gomoku.txt')
+            print("     Please type \'A\', \'B\'")
+            continue
 
 
 #############################
@@ -86,58 +122,9 @@ def menu_hidden():
             print("     Please type \'A\', \'B\'")
             continue
 
-#############################
-#   Menu logic
-# ###########################
-
-
-""" Menu """
-
-
-def menu():
-    loop = True
-    while loop:
-        print('\n')
-        print('       A.  Play New Game\n')
-        print('       B.  Rules and instructions\n')
-        player_action = input('       Please Enter Your Choice:\n')
-
-        if player_action == 'a' or player_action == '11':
-            home_act1()
-            continue
-
-        elif player_action == 'b' or player_action == '22':
-            home_act2()
-            continue
-        elif player_action == 'c' or player_action == '33':
-            home_act3()
-            continue
-        else:
-            print_ascii('assets/images/gomoku.txt')
-            print("     Please type \'A\', \'B\'")
-            continue
 
 #############################
-#   Description page
-# ###########################
-
-
-""" Description page """
-
-
-def description():
-    clear()
-    print_ascii('assets/images/gomoku.txt')
-    print('\n')
-    #time.sleep(0.7)
-    print_ascii('assets/images/description.txt')
-    print('\n')
-    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
-    menu_hidden()
-    #clear()
-
-#############################
-# Menu functions
+# Menu choices functions
 #############################
 
 
@@ -179,7 +166,8 @@ def home_act3():
 
 
 def print_game_board(game_board):
-    # clear()
+    print_ascii('assets/images/gomoku.txt')
+    print('      [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]\n')
     """ Add header """
     y = np.array([[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]])
     x = np.array([['', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']])
@@ -397,6 +385,23 @@ def main():
             else:
                 print("Position is not available, try again!")
                 continue
+
+
+#############################
+#   Description page
+# ###########################
+
+
+""" Description page """
+
+
+def description():
+    clear()
+    print_ascii('assets/images/gomoku.txt')
+    print_ascii('assets/images/description.txt')
+    print('\n')
+    print('     [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
+    menu_hidden()
 
 
 """ Run Game """
