@@ -121,7 +121,7 @@ def menu_hidden():
         else:
             print("     Please type \'A\', \'B\'")
             continue
-
+    clear()
 
 #############################
 # Menu choices functions
@@ -137,7 +137,7 @@ def home_act1():
     # time.sleep(2)
     # clear()
     main()
-    # clear()
+    clear()
 
 
 """ Menu choice B/22 Descrition """
@@ -146,7 +146,7 @@ def home_act1():
 def home_act2():
     clear()
     description()
-    # clear()
+    clear()
 
 
 """ Menu choice C/33 Start Page """
@@ -155,8 +155,9 @@ def home_act2():
 def home_act3():
     clear()
     print_ascii('assets/images/gomoku.txt')
+    print('\n')
     menu()
-    # clear()
+    clear()
 
 
 #############################
@@ -166,6 +167,7 @@ def home_act3():
 
 
 def print_game_board(game_board):
+    clear()
     print_ascii('assets/images/gomoku.txt')
     print('      [ 11.  Play New Game ]  [ 22.  Instructions ]  [ 33.  Start Page ]\n')
     """ Add header """
