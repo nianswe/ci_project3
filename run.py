@@ -413,6 +413,7 @@ def main():
 def description():
     clear()
     print_ascii('assets/images/gomoku.txt')
+    print('\n')
     print_ascii('assets/images/description.txt')
     print('\n')
     print('     [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]\n')
