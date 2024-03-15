@@ -44,14 +44,14 @@ def print_ascii(fn):
 
 def start():
     clear()
-    # print_ascii('assets/images/gomoku.txt')
-   # time.sleep(2)
-   # clear()
-    # print_ascii('assets/images/start.txt')
+    print_ascii('assets/images/gomoku.txt')
     # time.sleep(2)
     # clear()
-    print_ascii('assets/images/gomoku.txt')
-    print('\n')
+    print_ascii('assets/images/start.txt')
+    time.sleep(2)
+    clear()
+    # print_ascii('assets/images/gomoku.txt')
+    # print('\n')
     menu()
     
 
@@ -77,6 +77,9 @@ def logo():
 def menu():
     loop = True
     while loop:
+        clear()
+        print_ascii('assets/images/gomoku.txt')
+        print('\n')
         print('                         A.  Play New Game\n')
         print('                         B.  Rules and instructions\n')
         player_action = input('                         Please Enter Your Choice:\n')
@@ -92,7 +95,7 @@ def menu():
             home_act3()
             continue
         else:
-            print_ascii('assets/images/gomoku.txt')
+            # print_ascii('assets/images/gomoku.txt')
             print("     Please type \'A\', \'B\'")
             continue
 
@@ -154,8 +157,8 @@ def home_act2():
 
 def home_act3():
     clear()
-    print_ascii('assets/images/gomoku.txt')
-    print('\n')
+    # print_ascii('assets/images/gomoku.txt')
+    # print('\n')
     menu()
     clear()
 
@@ -318,8 +321,13 @@ def main():
                     clear()
                     print_game_board(game_board)
                     print("PLAYER 1 WINS with 5 in a row!!")
+                    print('\n')
+                    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
+                    time.sleep(2)
+                    clear()
+                    print_ascii('assets/images/winner1.txt')
+                    time.sleep(2)
                     game_over = True
-                    menu()
                 turn += 1
                 """ Print Game Board """
                 clear()
@@ -377,8 +385,13 @@ def main():
                     clear()
                     print_game_board(game_board)
                     print("PLAYER 2 WINS with 5 in a row!!")
+                    print('\n')
+                    print(' [ A.  Play New Game ]  [ B.  Instructions ]  [ C.  Start Page ]')
+                    time.sleep(2)
+                    clear()
+                    print_ascii('assets/images/winner2.txt')
+                    time.sleep(2)
                     game_over = True
-                    menu()
                 turn += 1
                 turn = turn % 2
                 """ Print Game Board """
