@@ -39,20 +39,20 @@ The deployed web app can be accessed [here](https://gomokunianswe-3b8eed28aaa7.h
 ## Features
 *   ### Existing Features
     -   <b>Menu:</b> User input to choose Play New Game or Instructions
-    -   <b>Description:</b> Game instructions
+    -   <b>Ïnstructions:</b> Game instructions
     -   <b>Game board:</b> Grid 10 x 10 with header on left and at bottom marcin rows and columns 0 - 9.
     -   <b>Place a Piece:</b> Place the players mark O or X on the game board at choosen position.
-    -   <b>Check if position/column/row is available:</b> Check if position ia available on the game board, or replay with information of position already is taken.
+    -   <b>Check if position/column/row is available:</b> Check if position is available on the game board, or replay with information if position already is taken.
     -   <b>Check for winner:</b> 
         - Horizontal check for 5 pices in a row for a player.
         - Vertical check for 5 pices in a row for a player.
         - Diagonal in check in both directions for 5 pices in a row for a player.
-    -   <b>Winner Banner:</b> Full Screen Banner with information of Winning Player.
+    -   <b>Winner Banner:</b> Full Screen Banner with information of winning Player.
 
 
 *   ### Future Features<br>
-    -   <b>Board with bigger grid.</b>
-    -   <b>User redistration.</b>
+    -   <b>Board with bigger grid with more rows and columns.</b>
+    -   <b>User registration.</b>
     -   <b>High score board with results.</b>
 
 *   ### Remaining Bugs 
@@ -62,7 +62,8 @@ The deployed web app can be accessed [here](https://gomokunianswe-3b8eed28aaa7.h
 
 *   ### Main Scope
     -   <b>run.py:</b> This is the main entry point of the application. 
-    -   <b>assets\images:</b>: text iles with instructions and ascii art.
+    -   <b>assets\images:</b>: text files with instructions and ascii art.
+    -   <b>media:</b>: Pictures for README.md.
 
 ## Libraries 
 - <b>Numpy:</b> Used to make it easier to create game board grid, and to append header column and row with information of column and row number to make the user experiance better.
@@ -101,5 +102,4 @@ Steps for Deployment:
 
 - How to print textfile and ascii art to terminal: https://learnlearn.uk/python/ascii-art/
 
-- How to create a menu with choices trigger functions: https://stackoverflow.com/questions/49226804/python-input-menu-function
-
+- How to create a menu with choices to trig functions: https://stackoverflow.com/questions/49226804/python-input-menu-function
