@@ -326,8 +326,6 @@ def main():
                     print_game_board(game_board)
                     print("PLAYER 1 WINS with 5 in a row!!")
                     print('\n')
-                    print(' [ A.  Play New Game ] \
-                    [ B.  Instructions ]  [ C.  Start Page ]')
                     time.sleep(2)
                     clear()
                     print_ascii('assets/images/winner1.txt')
@@ -391,8 +389,6 @@ def main():
                     print_game_board(game_board)
                     print("PLAYER 2 WINS with 5 in a row!!")
                     print('\n')
-                    print(' [ A.  Play New Game ] \
-                    [ B.  Instructions ]  [ C.  Start Page ]')
                     time.sleep(2)
                     clear()
                     print_ascii('assets/images/winner2.txt')
